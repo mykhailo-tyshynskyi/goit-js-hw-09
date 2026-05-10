@@ -8,17 +8,17 @@ const emailField = form.elements.email;
 const messageField = form.elements.message;
 
 const savedData = JSON.parse(localStorage.getItem('feedback-form-state')) ?? {};
-emailField.value = savedData.sevedEmail ?? '';
-messageField.value = savedData.savedMessage ?? '';
+emailField.value = savedData.email ?? '';
+messageField.value = savedData.message ?? '';
 formData.email = emailField.value;
 formData.message = messageField.value;
 form.addEventListener('input', handleFormInput);
 function handleFormInput() {
   formData.email = emailField.value.trim();
   formData.message = messageField.value.trim();
-  localStorage.setItem(
+   localStorage.setItem(
     'feedback-form-state',
-    JSON.stringify({ sevedEmail: formData.email, savedMessage: formData.message })
+    JSON.stringify(formData)
   );
    }
 
