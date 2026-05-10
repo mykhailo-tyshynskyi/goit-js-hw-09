@@ -91,7 +91,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css'
 let lightbox = new SimpleLightbox('.gallery a',
 	{
 		captionsData: "alt",
-		captionsDelay: 250,
+		captionDelay: 250,
 	}
 );
 
