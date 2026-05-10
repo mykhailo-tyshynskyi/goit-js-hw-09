@@ -12,27 +12,20 @@ emailField.value = savedData.sevedEmail ?? '';
 messageField.value = savedData.savedMessage ?? '';
 formData.email = emailField.value;
 formData.message = messageField.value;
-
-
-let email = '';
-let message = '';
 form.addEventListener('input', handleFormInput);
 function handleFormInput() {
-  email = emailField.value.trim();
-  message = messageField.value.trim();
+  formData.email = emailField.value.trim();
+  formData.message = messageField.value.trim();
   localStorage.setItem(
     'feedback-form-state',
-    JSON.stringify({ sevedEmail: email, savedMessage: message })
+    JSON.stringify({ sevedEmail: formData.email, savedMessage: formData.message })
   );
-  formData.email = email;
-  formData.message = message;
-
-  }
+   }
 
 form.addEventListener('submit', handleFormSubmit);
 function handleFormSubmit(event) {
   event.preventDefault();
-  if (emailField.value === '' || messageField.value === '') {
+  if (formData.email === '' || formData.message === '') {
     alert('Fill please all fields');
   } else {
     
